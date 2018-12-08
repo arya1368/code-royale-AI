@@ -8,15 +8,15 @@ import java.util.Scanner;
 
 class Player {
 
-  private static final Scanner in = new Scanner(System.in);
+  static final Scanner in = new Scanner(System.in);
 
-  private static Map<Integer, Site> sites = new HashMap<>();
-  private static List<Structure> emptyStruc;
-  private static List<Structure> friendlyStruc;
-  private static List<Structure> enemyStruc;
-  private static List<Unit> units;
-  private static Queen ME;
-  private static int gold;
+  static Map<Integer, Site> sites = new HashMap<>();
+  static List<Structure> emptyStruc;
+  static List<Structure> friendlyStruc;
+  static List<Structure> enemyStruc;
+  static List<Unit> units;
+  static Queen ME;
+  static int gold;
 
   public static void main(String args[]) {
     createSites();
@@ -409,7 +409,7 @@ class Player {
         if (s.param1 != 0)
           continue;
 
-        gold -= s.type.trainCost();
+        gold -= s.trainCost();
         return " " + s.site.id;
       }
       return "";
